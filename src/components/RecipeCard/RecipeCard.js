@@ -1,6 +1,10 @@
 import React from "react";
 import "./RecipeCard.css";
 
+
+
+
+
 let RecipeCard = props => {
   const {
     name,
@@ -10,10 +14,16 @@ let RecipeCard = props => {
     ingredients,
     instructions
   } = props;
+
+    
+
+
+
   const ingredientsDisplay = ingredients.map((ingredient, i) => {
     return <li key={i}>{ingredient}</li>;
   });
   const instructionsDisplay = instructions.map((instruction, i) => {
+    
     return <li key={i}>{instruction}</li>;
   });
   return (
@@ -40,6 +50,7 @@ let RecipeCard = props => {
         viewBox="0 0 60 60"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+       
       >
         <path
           d="M2.35352 57.3536L57.3535 3.3409M2.35352 2.64648L57.3535 56.6592"
@@ -52,3 +63,7 @@ let RecipeCard = props => {
 };
 
 export default RecipeCard;
+
+
+
+
