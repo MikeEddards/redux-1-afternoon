@@ -34,6 +34,7 @@ class Ingredients extends Component {
     });
   }
   render() {
+    console.log(this.state)
     const ingredients = this.state.ingredients.map((ingredient, i) => {
       return <li key={i}>{ingredient}</li>;
     });

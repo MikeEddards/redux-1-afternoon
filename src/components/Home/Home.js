@@ -9,12 +9,21 @@ class Home extends Component {
     super(props);
     const reduxState = store.getState()
     this.state = {
-      recipes: reduxState.recipe
+      recipe: reduxState.recipe
     };
+  }
+  componentDidMount(){
+    store.subscribe(() => {
+      let newState = store.getState()
+      this.setState({
+        recipe: newState.recipe
+      })
+    })
   }
 
   render() {
-    const recipes = this.state.recipes.map((recipe, i) => {
+    console.log(this.state)
+    const recipes = this.state.recipe.map((recipe, i) => {
       return (
         <RecipeCard
           key={i}

@@ -17,6 +17,7 @@ export const UPDATE_LAST_NAME = 'UPDATE_LAST_NAME'
 export const ADD_INGREDIENT = 'ADD_INGREDIENT'
 export const ADD_INSTRUCTIONS = 'ADD_INSTRUCTIONS'
 export const ADD_RECIPE = 'ADD_RECIPE'
+export const DELETE = 'DELETE'
 
 
 function reducer(state = initialState, action){
@@ -54,6 +55,7 @@ function reducer(state = initialState, action){
                       instructions
                     }
                     const newRecipe = [...state.recipe, recipe]
+                    console.log(newRecipe)
                     return ({ ...state, recipe: newRecipe,
                         name: '',
                         category: '',
@@ -63,6 +65,14 @@ function reducer(state = initialState, action){
                         instructions: [], }
                             
                         ) 
+            case DELETE:
+                console.log(state)
+                let filterRec = state.recipe.filter((rec, i) => {
+                    if(i !== payload){
+                        return rec
+                    }
+                })         
+                return Object.assign({}, state, {recipe: filterRec}) 
      
         default:
             return state

@@ -1,6 +1,6 @@
 import React from "react";
 import "./RecipeCard.css";
-
+import store, {DELETE} from '../../store'
 
 
 
@@ -17,8 +17,24 @@ let RecipeCard = props => {
 
     
 
+  const reduxState = store.getState()
+function hello(name){
+  let index
+  let find = reduxState.recipe.find((recipe, i) => {
+    if(recipe.name === name){
+      return index = i
+    }
+  })
+  console.log(index)
+  store.dispatch({
+    type: DELETE,
+    payload: index
+  })
+}
 
 
+
+  
   const ingredientsDisplay = ingredients.map((ingredient, i) => {
     return <li key={i}>{ingredient}</li>;
   });
@@ -50,6 +66,7 @@ let RecipeCard = props => {
         viewBox="0 0 60 60"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        onClick={() => hello(name)}
        
       >
         <path
